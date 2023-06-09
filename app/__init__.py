@@ -16,7 +16,7 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 @app.route("/")
 def index():
     return (
-        jsonify({"message": "Welcome to Daily Cloud Predict API", "version": "0.1.0"}),
+        jsonify({"message": "Welcome to Daily Cloud Predict API", "version": "0.1.1"}),
         200,
     )
 

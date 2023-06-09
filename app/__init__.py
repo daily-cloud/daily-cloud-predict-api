@@ -30,6 +30,11 @@ def index():
         )
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return jsonify({"status": "error", "message": "404 Resource Not Found"}), 404
+
+
 from app.api.routes.predict_routes import predict_image_routes, predict_text_routes
 
 app.register_blueprint(predict_image_routes, url_prefix="/api/predict")

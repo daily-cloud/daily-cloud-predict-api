@@ -18,8 +18,3 @@ instance/
 
 # VSCode
 .vscode
-
-# the Computer Vision model
-# still need to figure out how to get this to work
-app/keras_model/model_cv.h5
-app/keras_model/labels.txt

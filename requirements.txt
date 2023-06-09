@@ -5,3 +5,4 @@ pandas
 nltk
 num2words
 Sastrawi
+gunicorn

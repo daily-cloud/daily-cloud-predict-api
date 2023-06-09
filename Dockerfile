@@ -18,4 +18,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 # EXPOSE 8080 # not needed for Cloud Run
 
 # Run the app when the container launches
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 run:app
+CMD exec gunicorn --workers 1 --threads 8 --timeout 0 run:app

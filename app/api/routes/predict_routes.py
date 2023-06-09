@@ -21,10 +21,10 @@ def predict_text():
         request_data = request.form
         text = request_data["text"]
 
-        predicted_data = predict_depression(text)
+        # predicted_data = predict_depression(text)
 
-        depression = str(predicted_data["depression"])
-        confidence_score = str(predicted_data["confidence_score"])
+        # depression = str(predicted_data["depression"])
+        # confidence_score = str(predicted_data["confidence_score"])
 
         return (
             jsonify(
@@ -33,8 +33,8 @@ def predict_text():
                     "message": "Text predicted successfully!",
                     "data": {
                         "text": text,
-                        "depression": depression,
-                        "confidenceScore": confidence_score,
+                        # "depression": depression,
+                        # "confidenceScore": confidence_score,
                     },
                 }
             ),

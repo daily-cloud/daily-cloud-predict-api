@@ -1,6 +1,6 @@
 flask
 flask_cors
-tensorflow
+# tensorflow # the package is from docker image
 pandas
 nltk
 num2words

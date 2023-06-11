@@ -7,11 +7,7 @@ from flask import Flask, request, jsonify
 nltk.download("punkt")
 nltk.download("stopwords")
 
-UPLOAD_FOLDER = "temp"
-
 app = Flask(__name__)
-# CORS(app)
-# app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -35,7 +31,6 @@ def page_not_found(e):
     return jsonify({"status": "error", "message": "404 Resource Not Found"}), 404
 
 
-from app.api.routes.predict_routes import predict_image_routes, predict_text_routes
+from app.api.routes.predict_routes import predict_depression_route
 
-app.register_blueprint(predict_image_routes, url_prefix="/api/predict")
-app.register_blueprint(predict_text_routes, url_prefix="/api/predict")
+app.register_blueprint(predict_depression_route, url_prefix="/api/predict")

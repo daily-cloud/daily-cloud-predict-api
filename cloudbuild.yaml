@@ -23,8 +23,8 @@ steps:
       - '--max-instances'
       - '1'
       - '--memory'
-      - '1Gi'
+      - '8Gi'
       - '--cpu'
-      - '1'
+      - '4'
 images:
   - 'gcr.io/daily-cloud-c23-ps227/daily-cloud-images/daily-cloud-predict-api-dev:$COMMIT_SHA'

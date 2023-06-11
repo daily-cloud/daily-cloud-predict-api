@@ -1,7 +1,9 @@
 flask
 flask_cors
-tensorflow
+# tensorflow # the package is from docker image
 pandas
+numpy
 nltk
 num2words
 Sastrawi
+gunicorn

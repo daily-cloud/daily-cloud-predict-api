@@ -1,27 +1,36 @@
 import nltk
-from flask import Flask, jsonify
-from flask_cors import CORS
+from flask import Flask, request, jsonify
+
+# from flask_cors import CORS
 
 # Download NLTK data at first run
 nltk.download("punkt")
 nltk.download("stopwords")
 
-UPLOAD_FOLDER = "temp"
-
 app = Flask(__name__)
-CORS(app)
-app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
-    return (
-        jsonify({"message": "Welcome to Daily Cloud Predict API", "version": "0.1.0"}),
-        200,
-    )
+    if request.method == "GET":
+        return (
+            jsonify(
+                {"message": "Welcome to Daily Cloud Predict API", "version": "0.1.2"}
+            ),
+            200,
+        )
+    elif request.method == "POST":
+        return (
+            jsonify({"message": "POST Success", "version": "0.1.2"}),
+            200,
+        )
 
 
-from app.api.routes.predict_routes import predict_image_routes, predict_text_routes
+@app.errorhandler(404)
+def page_not_found(e):
+    return jsonify({"status": "error", "message": "404 Resource Not Found"}), 404
 
-app.register_blueprint(predict_image_routes, url_prefix="/api/predict")
-app.register_blueprint(predict_text_routes, url_prefix="/api/predict")
+
+from app.api.routes.predict_routes import predict_depression_route
+
+app.register_blueprint(predict_depression_route, url_prefix="/api/predict")

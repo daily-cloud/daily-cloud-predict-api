@@ -1,25 +1,24 @@
 steps:
   # Build the container image
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '-t', 'gcr.io/daily-cloud-c23-ps227/daily-cloud-images/daily-cloud-predict-api-dev:$COMMIT_SHA', '.' ]
+    args: [ 'build', '-t', 'gcr.io/daily-cloud-c23-ps227/daily-cloud-images/daily-cloud-predict-api:$COMMIT_SHA', '.' ]
 
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'push', 'gcr.io/daily-cloud-c23-ps227/daily-cloud-images/daily-cloud-predict-api-dev:$COMMIT_SHA' ]
+    args: [ 'push', 'gcr.io/daily-cloud-c23-ps227/daily-cloud-images/daily-cloud-predict-api:$COMMIT_SHA' ]
 
   # Deploy container image to Cloud Run
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'run'
       - 'deploy'
-      - 'daily-cloud-predict-api-dev'
+      - 'daily-cloud-predict-api'
       - '--image'
-      - 'gcr.io/daily-cloud-c23-ps227/daily-cloud-images/daily-cloud-predict-api-dev:$COMMIT_SHA'
+      - 'gcr.io/daily-cloud-c23-ps227/daily-cloud-images/daily-cloud-predict-api:$COMMIT_SHA'
       - '--region'
       - 'asia-southeast2'
       - '--platform'
       - 'managed'
-      - '--allow-unauthenticated'
       - '--max-instances'
       - '1'
       - '--memory'
@@ -27,4 +26,4 @@ steps:
       - '--cpu'
       - '4'
 images:
-  - 'gcr.io/daily-cloud-c23-ps227/daily-cloud-images/daily-cloud-predict-api-dev:$COMMIT_SHA'
+  - 'gcr.io/daily-cloud-c23-ps227/daily-cloud-images/daily-cloud-predict-api:$COMMIT_SHA'

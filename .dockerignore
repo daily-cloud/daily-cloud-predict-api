@@ -7,5 +7,4 @@ __pycache__
 .pytest_cache
 .venv
 
-app/keras_model/model_cv.h5
-app/keras_model/labels.txt
+app/keras_model/model_nlp.h5

@@ -6,6 +6,17 @@ The Daily Cloud Predict API provides an API for predicting whether a journal has
 
 ## Table of Contents
 
+- [Daily Cloud Predict API](#daily-cloud-predict-api)
+  - [Brief Description](#brief-description)
+  - [Table of Contents](#table-of-contents)
+  - [Tech Stack](#tech-stack)
+  - [Tools](#tools)
+  - [Todos](#todos)
+  - [Installation](#installation)
+    - [Run on Local Environment](#run-on-local-environment)
+    - [Run on Docker](#run-on-docker)
+  - [Author](#author)
+  - [Thank You](#thank-you)
 
 
 ## Tech Stack
@@ -108,4 +119,4 @@ Make sure you have Docker installed on your local computer
 - Bangkit Academy led by Google, GoTo, & Traveloka
 - Daily Cloud Capstone Team
 
-## [back to top](#daily-cloud-predict-api)
+[back to top](#daily-cloud-predict-api)
